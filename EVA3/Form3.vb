@@ -260,5 +260,11 @@ Public Class Form3
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
 
     End Sub
+
+    Private Sub btvolver_Click(sender As Object, e As EventArgs) Handles btvolver.Click
+        Dim form4 As New Form4()
+        form4.Show()
+        Me.Hide()
+    End Sub
 End Class
 

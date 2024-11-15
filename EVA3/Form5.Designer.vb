@@ -23,7 +23,7 @@ Partial Class Form5
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Panel1 = New Panel()
-        btventarepuesto = New Button()
+        btvolver = New Button()
         btbuscar = New Button()
         Label2 = New Label()
         txtidproducto = New TextBox()
@@ -50,7 +50,7 @@ Partial Class Form5
         ' Panel1
         ' 
         Panel1.BackColor = Color.FromArgb(CByte(224), CByte(224), CByte(224))
-        Panel1.Controls.Add(btventarepuesto)
+        Panel1.Controls.Add(btvolver)
         Panel1.Controls.Add(btbuscar)
         Panel1.Controls.Add(Label2)
         Panel1.Controls.Add(txtidproducto)
@@ -75,15 +75,15 @@ Partial Class Form5
         Panel1.Size = New Size(895, 783)
         Panel1.TabIndex = 0
         ' 
-        ' btventarepuesto
+        ' btvolver
         ' 
-        btventarepuesto.BackColor = Color.FromArgb(CByte(192), CByte(0), CByte(0))
-        btventarepuesto.Location = New Point(725, 553)
-        btventarepuesto.Name = "btventarepuesto"
-        btventarepuesto.Size = New Size(124, 181)
-        btventarepuesto.TabIndex = 24
-        btventarepuesto.Text = "Venta De Repuesto"
-        btventarepuesto.UseVisualStyleBackColor = False
+        btvolver.BackColor = Color.FromArgb(CByte(0), CByte(192), CByte(192))
+        btvolver.Location = New Point(0, 3)
+        btvolver.Name = "btvolver"
+        btvolver.Size = New Size(94, 29)
+        btvolver.TabIndex = 24
+        btvolver.Text = "Volver"
+        btvolver.UseVisualStyleBackColor = False
         ' 
         ' btbuscar
         ' 
@@ -266,10 +266,12 @@ Partial Class Form5
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1164, 834)
+        AutoSize = True
+        ClientSize = New Size(936, 796)
         Controls.Add(Panel1)
+        MdiChildrenMinimizedAnchorBottom = False
         Name = "Form5"
-        Text = "Form5"
+        Text = "TALLER"
         Panel1.ResumeLayout(False)
         Panel1.PerformLayout()
         CType(DataGridViewrepuestos, ComponentModel.ISupportInitialize).EndInit()
@@ -296,5 +298,5 @@ Partial Class Form5
     Friend WithEvents Label2 As Label
     Friend WithEvents txtidproducto As TextBox
     Friend WithEvents btbuscar As Button
-    Friend WithEvents btventarepuesto As Button
+    Friend WithEvents btvolver As Button
 End Class

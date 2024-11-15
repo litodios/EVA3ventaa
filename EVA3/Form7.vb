@@ -8,6 +8,8 @@ Public Class Form7
         CargarRepuestos()
         CargarVentas()
         CargarFiltroRepuestos()
+        CargarStock()
+
     End Sub
 
     Private Sub CargarRepuestos()
@@ -50,6 +52,21 @@ Public Class Form7
         End Using
 
         DataGridView1.DataSource = dt
+    End Sub
+
+    Private Sub CargarStock()
+        Dim query As String = "SELECT NombreRepuesto, CantidadStock FROM repuestos"
+        Dim dt As New DataTable()
+
+        Using cmd As New MySqlCommand(query, connection)
+            connection.Open()
+            Using reader As MySqlDataReader = cmd.ExecuteReader()
+                dt.Load(reader)
+            End Using
+            connection.Close()
+        End Using
+
+        DataGridView2.DataSource = dt
     End Sub
 
     Private Sub cmbNombreRepuesto_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbNombreRepuesto.SelectedIndexChanged
@@ -108,7 +125,7 @@ Public Class Form7
     End Sub
 
     Private Sub btventarepuesto_Click(sender As Object, e As EventArgs) Handles btventarepuesto.Click
-        ' Validar campos
+
         If String.IsNullOrWhiteSpace(cmbNombreRepuesto.Text) Then
             MessageBox.Show("Seleccione un repuesto.")
             Return
@@ -176,6 +193,7 @@ Public Class Form7
             connection.Open()
             Try
                 command.ExecuteNonQuery()
+                CargarStock()
             Catch ex As Exception
                 MessageBox.Show("Error al actualizar el stock: " & ex.Message)
             End Try
@@ -183,12 +201,17 @@ Public Class Form7
     End Sub
 
     Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
+
         CargarVentas()
+
+
         Dim fecha As Date = DateTimePicker2.Value.Date
         Dim repuesto As String = cmbFiltroRepuesto.Text
         Dim cliente As String = txtFiltroCliente.Text
 
+
         Dim query As String = "SELECT * FROM VentasRepuestos WHERE 1=1"
+
 
         If Not String.IsNullOrWhiteSpace(repuesto) Then
             query += " AND NombreRepuesto = @repuesto"
@@ -198,9 +221,8 @@ Public Class Form7
             query += " AND Cliente LIKE @cliente"
         End If
 
-        If fecha <> Date.MinValue Then
-            query += " AND FechaVenta = @fecha"
-        End If
+        query += " AND FechaVenta = @fecha"
+
 
         Using connection As New MySqlConnection(connectionString)
             Using cmd As New MySqlCommand(query, connection)
@@ -212,16 +234,21 @@ Public Class Form7
                     cmd.Parameters.AddWithValue("@cliente", "%" & cliente & "%")
                 End If
 
-                If fecha <> Date.MinValue Then
-                    cmd.Parameters.AddWithValue("@fecha", fecha)
-                End If
+
+                cmd.Parameters.AddWithValue("@fecha", fecha)
+
 
                 Dim dt As New DataTable()
-                connection.Open()
-                Using reader As MySqlDataReader = cmd.ExecuteReader()
-                    dt.Load(reader)
-                End Using
-                connection.Close()
+                Try
+                    connection.Open()
+                    Using reader As MySqlDataReader = cmd.ExecuteReader()
+                        dt.Load(reader)
+                    End Using
+                Catch ex As Exception
+                    MessageBox.Show("Error en la consulta: " & ex.Message)
+                Finally
+                    connection.Close()
+                End Try
 
                 DataGridView1.DataSource = dt
             End Using
@@ -236,4 +263,9 @@ Public Class Form7
         CargarVentas()
     End Sub
 
+    Private Sub btvolver_Click(sender As Object, e As EventArgs) Handles btvolver.Click
+        Dim form4 As New Form4()
+        form4.Show()
+        Me.Hide()
+    End Sub
 End Class

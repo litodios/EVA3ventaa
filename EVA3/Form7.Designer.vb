@@ -32,10 +32,16 @@ Partial Class Form7
         cliente = New Label()
         Label4 = New Label()
         Panel1 = New Panel()
+        btvolver = New Button()
         DateTimePicker1 = New DateTimePicker()
         Label6 = New Label()
         Label3 = New Label()
         Panel2 = New Panel()
+        Label11 = New Label()
+        DataGridView2 = New DataGridView()
+        Label10 = New Label()
+        Label9 = New Label()
+        Label8 = New Label()
         btnLimpiarFiltros = New Button()
         btnBuscar = New Button()
         Label7 = New Label()
@@ -45,11 +51,9 @@ Partial Class Form7
         Label5 = New Label()
         cmbFiltroRepuesto = New ComboBox()
         FileSystemWatcher1 = New IO.FileSystemWatcher()
-        Label8 = New Label()
-        Label9 = New Label()
-        Label10 = New Label()
         Panel1.SuspendLayout()
         Panel2.SuspendLayout()
+        CType(DataGridView2, ComponentModel.ISupportInitialize).BeginInit()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         CType(FileSystemWatcher1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -85,7 +89,7 @@ Partial Class Form7
         ' 
         ' btventarepuesto
         ' 
-        btventarepuesto.Location = New Point(175, 427)
+        btventarepuesto.Location = New Point(185, 402)
         btventarepuesto.Name = "btventarepuesto"
         btventarepuesto.Size = New Size(188, 52)
         btventarepuesto.TabIndex = 4
@@ -97,18 +101,18 @@ Partial Class Form7
         Label1.AutoSize = True
         Label1.Location = New Point(34, 150)
         Label1.Name = "Label1"
-        Label1.Size = New Size(87, 15)
+        Label1.Size = New Size(88, 15)
         Label1.TabIndex = 5
-        Label1.Text = "selecionar item"
+        Label1.Text = "Selecionar item"
         ' 
         ' Label2
         ' 
         Label2.AutoSize = True
         Label2.Location = New Point(34, 201)
         Label2.Name = "Label2"
-        Label2.Size = New Size(98, 15)
+        Label2.Size = New Size(100, 15)
         Label2.TabIndex = 6
-        Label2.Text = "cantidad vendida"
+        Label2.Text = "Cantidad vendida"
         ' 
         ' cliente
         ' 
@@ -124,12 +128,14 @@ Partial Class Form7
         Label4.AutoSize = True
         Label4.Location = New Point(34, 354)
         Label4.Name = "Label4"
-        Label4.Size = New Size(31, 15)
+        Label4.Size = New Size(32, 15)
         Label4.TabIndex = 8
-        Label4.Text = "total"
+        Label4.Text = "Total"
         ' 
         ' Panel1
         ' 
+        Panel1.BackColor = Color.FromArgb(CByte(128), CByte(255), CByte(255))
+        Panel1.Controls.Add(btvolver)
         Panel1.Controls.Add(DateTimePicker1)
         Panel1.Controls.Add(Label6)
         Panel1.Controls.Add(Label3)
@@ -147,6 +153,16 @@ Partial Class Form7
         Panel1.Name = "Panel1"
         Panel1.Size = New Size(495, 685)
         Panel1.TabIndex = 10
+        ' 
+        ' btvolver
+        ' 
+        btvolver.BackColor = Color.FromArgb(CByte(192), CByte(192), CByte(0))
+        btvolver.Location = New Point(0, 0)
+        btvolver.Name = "btvolver"
+        btvolver.Size = New Size(100, 37)
+        btvolver.TabIndex = 18
+        btvolver.Text = "Volver"
+        btvolver.UseVisualStyleBackColor = False
         ' 
         ' DateTimePicker1
         ' 
@@ -167,14 +183,18 @@ Partial Class Form7
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Location = New Point(185, 51)
+        Label3.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label3.Location = New Point(170, 32)
         Label3.Name = "Label3"
-        Label3.Size = New Size(113, 15)
+        Label3.Size = New Size(193, 25)
         Label3.TabIndex = 9
         Label3.Text = "MENU DE REGISTRO"
         ' 
         ' Panel2
         ' 
+        Panel2.BackColor = Color.FromArgb(CByte(255), CByte(128), CByte(128))
+        Panel2.Controls.Add(Label11)
+        Panel2.Controls.Add(DataGridView2)
         Panel2.Controls.Add(Label10)
         Panel2.Controls.Add(Label9)
         Panel2.Controls.Add(Label8)
@@ -188,12 +208,58 @@ Partial Class Form7
         Panel2.Controls.Add(cmbFiltroRepuesto)
         Panel2.Location = New Point(565, 12)
         Panel2.Name = "Panel2"
-        Panel2.Size = New Size(666, 685)
+        Panel2.Size = New Size(662, 714)
         Panel2.TabIndex = 17
+        ' 
+        ' Label11
+        ' 
+        Label11.AutoSize = True
+        Label11.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label11.Location = New Point(295, 541)
+        Label11.Name = "Label11"
+        Label11.Size = New Size(52, 21)
+        Label11.TabIndex = 23
+        Label11.Text = "Stock"
+        ' 
+        ' DataGridView2
+        ' 
+        DataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridView2.Location = New Point(75, 567)
+        DataGridView2.Name = "DataGridView2"
+        DataGridView2.RowHeadersWidth = 51
+        DataGridView2.Size = New Size(491, 144)
+        DataGridView2.TabIndex = 17
+        ' 
+        ' Label10
+        ' 
+        Label10.AutoSize = True
+        Label10.Location = New Point(25, 273)
+        Label10.Name = "Label10"
+        Label10.Size = New Size(44, 15)
+        Label10.TabIndex = 22
+        Label10.Text = "FECHA"
+        ' 
+        ' Label9
+        ' 
+        Label9.AutoSize = True
+        Label9.Location = New Point(25, 206)
+        Label9.Name = "Label9"
+        Label9.Size = New Size(75, 15)
+        Label9.TabIndex = 21
+        Label9.Text = "RUT CLIENTE"
+        ' 
+        ' Label8
+        ' 
+        Label8.AutoSize = True
+        Label8.Location = New Point(25, 128)
+        Label8.Name = "Label8"
+        Label8.Size = New Size(113, 15)
+        Label8.TabIndex = 20
+        Label8.Text = "NOMBRE REPUESTO"
         ' 
         ' btnLimpiarFiltros
         ' 
-        btnLimpiarFiltros.Location = New Point(490, 402)
+        btnLimpiarFiltros.Location = New Point(446, 337)
         btnLimpiarFiltros.Name = "btnLimpiarFiltros"
         btnLimpiarFiltros.Size = New Size(120, 39)
         btnLimpiarFiltros.TabIndex = 19
@@ -212,9 +278,10 @@ Partial Class Form7
         ' Label7
         ' 
         Label7.AutoSize = True
-        Label7.Location = New Point(186, 42)
+        Label7.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label7.Location = New Point(203, 32)
         Label7.Name = "Label7"
-        Label7.Size = New Size(161, 15)
+        Label7.Size = New Size(275, 25)
         Label7.TabIndex = 17
         Label7.Text = "BUSQUEDA RESUMEN VENTA"
         ' 
@@ -227,7 +294,7 @@ Partial Class Form7
         ' 
         ' txtFiltroCliente
         ' 
-        txtFiltroCliente.Location = New Point(144, 198)
+        txtFiltroCliente.Location = New Point(161, 199)
         txtFiltroCliente.Name = "txtFiltroCliente"
         txtFiltroCliente.Size = New Size(190, 23)
         txtFiltroCliente.TabIndex = 15
@@ -235,24 +302,26 @@ Partial Class Form7
         ' DataGridView1
         ' 
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Location = New Point(3, 454)
+        DataGridView1.Location = New Point(3, 382)
         DataGridView1.Name = "DataGridView1"
-        DataGridView1.Size = New Size(643, 219)
+        DataGridView1.RowHeadersWidth = 51
+        DataGridView1.Size = New Size(640, 140)
         DataGridView1.TabIndex = 14
         ' 
         ' Label5
         ' 
         Label5.AutoSize = True
-        Label5.Location = New Point(219, 414)
+        Label5.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label5.Location = New Point(246, 349)
         Label5.Name = "Label5"
-        Label5.Size = New Size(115, 15)
+        Label5.Size = New Size(121, 15)
         Label5.TabIndex = 10
         Label5.Text = "RESUMEN DE VENTA"
         ' 
         ' cmbFiltroRepuesto
         ' 
         cmbFiltroRepuesto.FormattingEnabled = True
-        cmbFiltroRepuesto.Location = New Point(144, 120)
+        cmbFiltroRepuesto.Location = New Point(177, 126)
         cmbFiltroRepuesto.Name = "cmbFiltroRepuesto"
         cmbFiltroRepuesto.Size = New Size(190, 23)
         cmbFiltroRepuesto.TabIndex = 13
@@ -262,46 +331,21 @@ Partial Class Form7
         FileSystemWatcher1.EnableRaisingEvents = True
         FileSystemWatcher1.SynchronizingObject = Me
         ' 
-        ' Label8
-        ' 
-        Label8.AutoSize = True
-        Label8.Location = New Point(25, 128)
-        Label8.Name = "Label8"
-        Label8.Size = New Size(113, 15)
-        Label8.TabIndex = 20
-        Label8.Text = "NOMBRE REPUESTO"
-        ' 
-        ' Label9
-        ' 
-        Label9.AutoSize = True
-        Label9.Location = New Point(25, 206)
-        Label9.Name = "Label9"
-        Label9.Size = New Size(75, 15)
-        Label9.TabIndex = 21
-        Label9.Text = "RUT CLIENTE"
-        ' 
-        ' Label10
-        ' 
-        Label10.AutoSize = True
-        Label10.Location = New Point(25, 273)
-        Label10.Name = "Label10"
-        Label10.Size = New Size(44, 15)
-        Label10.TabIndex = 22
-        Label10.Text = "FECHA"
-        ' 
         ' Form7
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1268, 736)
+        ClientSize = New Size(1265, 739)
         Controls.Add(Panel2)
         Controls.Add(Panel1)
+        MdiChildrenMinimizedAnchorBottom = False
         Name = "Form7"
-        Text = "Form7"
+        Text = "Venta Taller"
         Panel1.ResumeLayout(False)
         Panel1.PerformLayout()
         Panel2.ResumeLayout(False)
         Panel2.PerformLayout()
+        CType(DataGridView2, ComponentModel.ISupportInitialize).EndInit()
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         CType(FileSystemWatcher1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
@@ -333,4 +377,7 @@ Partial Class Form7
     Friend WithEvents Label10 As Label
     Friend WithEvents Label9 As Label
     Friend WithEvents Label8 As Label
+    Friend WithEvents DataGridView2 As DataGridView
+    Friend WithEvents Label11 As Label
+    Friend WithEvents btvolver As Button
 End Class

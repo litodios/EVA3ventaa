@@ -30,6 +30,7 @@ Partial Class Form2
         Label1 = New Label()
         UsuarioCliente = New TextBox()
         ContraseñaCliente = New TextBox()
+        Btvolver = New Button()
         Panel1.SuspendLayout()
         SuspendLayout()
         ' 
@@ -38,6 +39,7 @@ Partial Class Form2
         Panel1.BackColor = Color.Gray
         Panel1.BackgroundImage = CType(resources.GetObject("Panel1.BackgroundImage"), Image)
         Panel1.BackgroundImageLayout = ImageLayout.Stretch
+        Panel1.Controls.Add(Btvolver)
         Panel1.Controls.Add(Label3)
         Panel1.Controls.Add(BTINGRESARcliente)
         Panel1.Controls.Add(Label2)
@@ -107,6 +109,15 @@ Partial Class Form2
         ContraseñaCliente.Size = New Size(189, 23)
         ContraseñaCliente.TabIndex = 8
         ' 
+        ' Btvolver
+        ' 
+        Btvolver.Location = New Point(17, 284)
+        Btvolver.Name = "Btvolver"
+        Btvolver.Size = New Size(75, 28)
+        Btvolver.TabIndex = 1
+        Btvolver.Text = "Volver"
+        Btvolver.UseVisualStyleBackColor = True
+        ' 
         ' Form2
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -127,4 +138,5 @@ Partial Class Form2
     Friend WithEvents UsuarioCliente As TextBox
     Friend WithEvents ContraseñaCliente As TextBox
     Friend WithEvents Label3 As Label
+    Friend WithEvents Btvolver As Button
 End Class

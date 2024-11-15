@@ -55,6 +55,7 @@ Partial Class Form1
         ' 
         ' Panel1
         ' 
+        Panel1.AutoSize = True
         Panel1.BackColor = Color.White
         Panel1.BackgroundImage = CType(resources.GetObject("Panel1.BackgroundImage"), Image)
         Panel1.BackgroundImageLayout = ImageLayout.Stretch
@@ -67,20 +68,21 @@ Partial Class Form1
         Panel1.Controls.Add(TXCONTRASEÑA)
         Panel1.Controls.Add(MenuStrip1)
         Panel1.Controls.Add(MenuStrip2)
-        Panel1.Location = New Point(77, 46)
+        Panel1.Location = New Point(3, 12)
         Panel1.Name = "Panel1"
         Panel1.Size = New Size(431, 329)
         Panel1.TabIndex = 2
         ' 
         ' BTINGRESAR
         ' 
+        BTINGRESAR.AutoSize = True
         BTINGRESAR.BackColor = Color.Silver
         BTINGRESAR.BackgroundImage = CType(resources.GetObject("BTINGRESAR.BackgroundImage"), Image)
         BTINGRESAR.Font = New Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         BTINGRESAR.ForeColor = SystemColors.ButtonFace
-        BTINGRESAR.Location = New Point(107, 234)
+        BTINGRESAR.Location = New Point(115, 230)
         BTINGRESAR.Name = "BTINGRESAR"
-        BTINGRESAR.Size = New Size(220, 74)
+        BTINGRESAR.Size = New Size(205, 51)
         BTINGRESAR.TabIndex = 6
         BTINGRESAR.Text = "INGRESAR"
         BTINGRESAR.UseVisualStyleBackColor = False
@@ -164,18 +166,21 @@ Partial Class Form1
         ' 
         ' Form1
         ' 
+        AcceptButton = BTINGRESAR
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(707, 503)
+        ClientSize = New Size(435, 345)
         Controls.Add(Panel1)
         MainMenuStrip = MenuStrip1
+        MaximizeBox = False
         Name = "Form1"
-        Text = "Form1"
+        Text = "Login_usuario"
         Panel1.ResumeLayout(False)
         Panel1.PerformLayout()
         MenuStrip2.ResumeLayout(False)
         MenuStrip2.PerformLayout()
         ResumeLayout(False)
+        PerformLayout()
     End Sub
 
     Friend WithEvents TXUSUARIO As TextBox

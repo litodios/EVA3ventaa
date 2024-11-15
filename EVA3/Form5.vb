@@ -221,9 +221,9 @@ Public Class Form5
         End Function
     End Class
 
-    Private Sub btventarepuesto_Click(sender As Object, e As EventArgs) Handles btventarepuesto.Click
-        Dim form7 As New Form7()
-        form7.Show()
+    Private Sub btvolver_Click(sender As Object, e As EventArgs) Handles btvolver.Click
+        Dim form4 As New Form4()
+        form4.Show()
         Me.Hide()
     End Sub
 End Class
