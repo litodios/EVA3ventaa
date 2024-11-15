@@ -53,7 +53,7 @@ Public Class Form8
 
     ' Función para validar el formulario
     Private Function ValidarFormulario() As Boolean
-        If String.IsNullOrWhiteSpace(txRut.Text) OrElse String.IsNullOrWhiteSpace(txNombre.Text) OrElse String.IsNullOrWhiteSpace(txApellidoP.Text) OrElse String.IsNullOrWhiteSpace(txApellidoM.Text) OrElse String.IsNullOrWhiteSpace(txDireccion.Text) OrElse cmbTelefono.SelectedItem Is Nothing OrElse cmbComuna.SelectedItem Is Nothing Then
+        If String.IsNullOrWhiteSpace(txRut.Text) OrElse String.IsNullOrWhiteSpace(txNombre.Text) OrElse String.IsNullOrWhiteSpace(txApellidoP.Text) OrElse String.IsNullOrWhiteSpace(txApellidoM.Text) OrElse String.IsNullOrWhiteSpace(txDireccion.Text) OrElse cmTelefono.SelectedItem Is Nothing OrElse cmComuna.SelectedItem Is Nothing Then
             MessageBox.Show("Por favor completa todos los campos.")
             Return False
         End If
@@ -113,7 +113,7 @@ Public Class Form8
 
     ' Eliminar un cliente
     Private Sub btEliminar(sender As Object, e As EventArgs) Handles btEliminar_Click
-        If String.IsNullOrWhiteSpace(txRut.Text) Then
+            If String.IsNullOrWhiteSpace(txRut.Text) Then
             MessageBox.Show("Por favor ingrese un Rut para eliminar.")
             Return
         End If
